@@ -1,0 +1,47 @@
+footer
+	#shoulder
+		position: absolute
+		top: 217px
+		right: 684px
+		> span
+			color: red
+			position: relative
+			font-size: 24pt
+			font-weight: bold
+			text-shadow: 1px 1px 1px rgba(150, 150, 150, 1)
+			&:after
+				content: ""
+				position: absolute
+				top: 10
+				left: 7px
+				width: 90%
+				height: 100%
+				border-radius: 70px 168px 0px 90px
+				background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(250, 250, 210, 0.6), rgba(255, 255, 255, 0)) no-repeat -2em 0%
+				background-size: 60px 100%/*размер блика*/
+				transform: skewX(105deg (+180deg))
+			&.blink_on:after
+				transition: 1.5s linear
+				background-position: 280% 0%
+	#arm
+		position: absolute
+		top: 235px
+		right: 829px
+		> span
+			
+			&:after
+				content: ""
+				position: absolute
+				top: 3px
+				left: -6px
+				width: 90%
+				height: 100%
+				border-radius: 0px 70px 10px 110px
+				background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(250, 250, 180, 0.6), rgba(255, 255, 255, 0)) no-repeat -2em 0%
+				background-size: 37px 100%/*размер блика*/
+				transform: skewX(140deg)
+			&.blink_on:after
+				transition: 1.1s linear
+				background-position: 300% 50%
+
+	

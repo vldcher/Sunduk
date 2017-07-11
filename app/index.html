@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="SampleApp">
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Title</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#000">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#000">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+	<style>body { opacity: 0; overflow-x: hidden; } html { background-color: #fff; }</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script>
+		var app = angular.module("SampleApp", []);
+
+		app.controller("SampleAppCtrl", function ($scope) {
+		$scope.items = [{ name: "Item 1", value: "Value 1" },
+		{ name: "Item 2", value: "Value 2" },
+		{ name: "Item 3", value: "Value 3" }];
+	});
+</script>
+</head>
+<body>
+	<main style="background-image: url(img/Main-fon.jpg);">
+		<div class="col-lg-2">
+			<div class="torch">
+				<img src="img/fakel.png" alt="Факел">
+				<div class="fakel-fon" style="background-image: url(img/fakel-fon.png);"></div>
+			</div>
+			<canvas id="canvas"></canvas>
+		</div>
+		<div class="col-lg-6">
+			<div class="logo"><img src="img/Logo.png" alt="Логотип"></div>
+			<div class="game-field">
+				<div class="game-item-wrapper">
+					<div class="chest">
+						<div class="chest-closed" id="chest" data-chest="0"></div>
+					</div>
+				</div>
+			</div>
+			<div class="game-field">
+				<div class="game-item-wrapper">
+					<div class="chest">
+						<div class="chest-closed" id="chest" data-chest="0"></div>
+					</div>
+				</div>
+			</div>
+			<div class="game-field">
+				<div class="game-item-wrapper">
+					<div class="chest">
+						<div class="chest-closed" id="chest" data-chest="0"></div>
+					</div>
+				</div>
+			</div>
+			<div class="game-field">
+				<div class="game-item-wrapper">
+					<div class="chest">
+						<div class="chest-closed" id="chest"></div>
+					</div>
+				</div>
+			</div>
+			<div class="game-field">
+				<div class="game-item-wrapper">
+					<div class="chest">
+						<div class="chest-closed" id="chest"></div>
+					</div>
+				</div>
+			</div>
+			<div class="game-field">
+				<div class="game-item-wrapper">
+					<div class="chest">
+						<div class="chest-closed" id="chest"></div>
+					</div>
+				</div>
+			</div>
+			<div class="game-field">
+				<div class="game-item-wrapper">
+					<div class="chest">
+						<div class="chest-closed" id="chest"></div>
+					</div>
+				</div>
+			</div>
+			<div class="game-field">
+				<div class="game-item-wrapper">
+					<div class="chest">
+						<div class="chest-closed" id="chest"></div>
+					</div>
+				</div>
+			</div>
+			<div class="game-field">
+				<div class="game-item-wrapper">
+					<div class="chest">
+						<div class="chest-closed" id="chest"></div>
+					</div>
+				</div>
+			</div>
+			<div class="gnom">
+				<span class="viking"><img src="img/viking1.png" alt="Гном"></span>
+				<img src="img/gnom-text.png" alt="Текст">
+				<div class="gnom-text">Вскрывай сундуки из моей сокровищницы! Ищи несметные бонусы дня!</div>
+				<button class="silver-button playButton" id="playButton" disabled>Играть</button>
+			</div>
+		</div>
+		<div class="menu col-lg-2" style="background-image: url(img/Menu-background.jpeg); background-repeat: no-repeat;" >
+			<div class="runa"><img src="img/Runa.png" alt="Руна"></div>
+			<div class="menu-content" ng-controller="SampleAppCtrl">
+				<p>Текущий выигрыш</p>
+				<span>Бонусных баллов:</span> <span class="gold-number bonus-points" id="amountOfBonusPoints">1754</span>
+				<p>Вам доступно</p>
+				<span>Игр:</span> <span class="gold-number available-games">0</span>
+				<p>Покупка</p>
+
+				<span class="games-quantity">Игр:</span>
+				<div class="input-group spinner">
+
+					<input type="number" class="form-control games-quantity-input" id="gamesQuantityInput" value="0" min="0" max="100">
+					<div class="input-group-btn-vertical">
+						<button class="btn btn-default next" type="button"><i class="fa fa-chevron-up"></i></button>
+						<button class="btn btn-default prev" type="button"><i class="fa fa-chevron-down"></i></button>
+					</div>
+				</div> 
+
+				<p class="sum">Сумма: <span class="gold-number total-price">0<i class="fa fa-rub"></i></span></p>
+				<button class="gold-button buyButton" id='foo'>Купить</button><br>
+				<b>1 игра = 50 руб.</b>
+			<!-- 	<ul>
+					<li ng-repeat="item in items">{{item.name}}</li>
+				</ul>
+				<div>
+					При смене значения в поле ввода будет изменено значения элемента по индексу 1 в массиве items
+					Двунаправленная привязка (two way binding) <input ng-model="items[1].name" />
+				</div> -->
+
+			</div>
+
+
+		</div>
+		<div class="col-lg-2">
+
+		</div>
+	</main>
+
+	<footer>
+		<div id="shoulder"><span class="blick-shoulder blink_on"><img src="img/naplechnik.png" alt="Блик"></span></div>
+		<div id="arm"><span class="blick-arm blink_on"><img src="img/arm.png" alt="Блик"></span></div>
+
+		<style>
+
+		</style>
+		<script>
+
+		</script>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+	</footer>
+	<script src="https://use.fontawesome.com/3d1c155147.js"></script>
+
+	<link rel="stylesheet" href="css/main.min.css">
+	<script src="js/scripts.min.js"></script>
+
+</body>
+</html>
