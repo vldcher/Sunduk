@@ -51,21 +51,21 @@
 			<div class="game-field">
 				<div class="game-item-wrapper">
 					<div class="chest">
-						<div class="chest-closed" id="chest" data-chest="0"></div>
+						<div class="chest-gold-closed" id="chest" data-chest="1"></div>
 					</div>
 				</div>
 			</div>
 			<div class="game-field">
 				<div class="game-item-wrapper">
 					<div class="chest">
-						<div class="chest-closed" id="chest" data-chest="0"></div>
+						<div class="chest-gold-closed" id="chest" data-chest="2"></div>
 					</div>
 				</div>
 			</div>
 			<div class="game-field">
 				<div class="game-item-wrapper">
 					<div class="chest">
-						<div class="chest-closed" id="chest" data-chest="0"></div>
+						<div class="chest-gold-closed" id="chest" data-chest="3"></div>
 					</div>
 				</div>
 			</div>
@@ -138,15 +138,14 @@
 				</div> 
 
 				<p class="sum">Сумма: <span class="gold-number total-price">0<i class="fa fa-rub"></i></span></p>
-				<button class="gold-button buyButton" id='foo'>Купить</button><br>
+				<button class="gold-button buyButton" id='buyButton'>Купить</button><br>
 				<b>1 игра = 50 руб.</b>
-			<!-- 	<ul>
+				<ul>
 					<li ng-repeat="item in items">{{item.name}}</li>
 				</ul>
 				<div>
-					При смене значения в поле ввода будет изменено значения элемента по индексу 1 в массиве items
-					Двунаправленная привязка (two way binding) <input ng-model="items[1].name" />
-				</div> -->
+				<input ng-model="items[1].name" />
+				</div>
 
 			</div>
 

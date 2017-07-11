@@ -144,14 +144,9 @@ $(function() {
 	});
 	
 	
-	//calculate Sum
-	// var CalulateSum = function(){
-		// 	var oneGamePrice = 50;
-		// 	var gamesQuantityInput = $(this).find('.games-quantity-input').val(); //количество покупаемых игр
-		// 	var sum = samesQuantityInput * oneGamePrice; //Сума за покупку игр
 
-		// };
-		$('#foo').bind('click', function(){
+
+		$('#buyButton').bind('click', function(){
 			var oneGamePrice = 50;
 			var gamesQuantityInput = document.getElementById('gamesQuantityInput');
 			var amountOfBonusPoints = document.getElementById('amountOfBonusPoints').innerHTML; //1754
@@ -168,34 +163,31 @@ $(function() {
 			}
 			else {
 				alert('Извини, но на твоём счету недостаточно средств :(');
-
-
 			}
 			if (availableGames >= 1){
 
 				var playButton = document.getElementById('playButton');
-				// var playButton = document.getElementsByClassName('.silver-button');
-
-
+				
 				$('#playButton').css('background', 'url(/img/button-gold-all.png)');
 				$('#playButton').css('padding', '14px 58px');
 				$('#playButton').css('cursor', 'pointer');
-				// $('.gnom-text').empty();
+				$('#playButton').removeAttr("disabled");
 				$('.gnom-text').text('Отличная работа! Теперь можешь приступать к поиску сокровищ!');
-
-
-
-
-				// $('#playButton').removeClass('.silver-button');
-				// $('#playButton').addClass('.gold-button');
-
-				// alert('her');
 
 			}
 			else {
-				// playButton.removeClass('.gold-button');
-				// playButton.addClass('.silver-button');
 			}
+		});
+		
+// alert(availableGames); Нужно вытащить количество доступных игр
+
+		$('#playButton').bind('click', function(){
+			
+
+			var availableGames = availableGames - 1;
+
+			$('.available-games').text(availableGames);
+
 
 		});
 
@@ -204,12 +196,25 @@ $(function() {
 			$('.chest-closed').addClass('active-chest');
 			setTimeout(function() {
 				$('.active-chest').css('background', 'url(/img/sunduk-open-full-small.png)');
-						
-		}, 35);
+
+			}, 35);
+		});
+
+		$('.chest-gold-closed').bind('click', function(){
+			// $(this).css('background', 'url(/img/sunduk-open-half-small.png)');
+			$('.chest-gold-closed').addClass('active-gold-chest');
+			setTimeout(function() {
+				$('.active-gold-chest').css('background', 'url(/img/sunduk-open-full-gold-small.png)');
+
+			}, 35);
+
 
 			// alert('her');
-
 		});
+
+		// $('#playButton').bind('click', function(){
+		// 	alert('her');
+		// });
 
 
 
